@@ -1,0 +1,39 @@
+.book-card-container {
+  margin: 40px;
+  display: flex;
+  background-color: white;
+  width: 30vw;
+  box-shadow: 3px 6px 35px grey;
+}
+.book-img-container {
+  /* margin-top: -20px; */
+  /* The element is positioned relative to itself */
+  position: relative;
+  top: -20px;
+}
+
+.book-content-conatiner {
+  padding: 15px 18px;
+}
+
+.book-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.book-author {
+  color: gray;
+  margin-bottom: 6px;
+}
+
+.rating-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.book-description {
+  height: 60px;
+  color: grey;
+  font-weight: 600;
+}
