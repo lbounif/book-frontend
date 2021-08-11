@@ -1,9 +1,10 @@
 .book-card-container {
-  margin: 40px;
+  margin: 30px 20px;
   display: flex;
   background-color: white;
   width: 30vw;
   box-shadow: 3px 6px 35px grey;
+  padding: 0px 15px;
 }
 .book-img-container {
   /* margin-top: -20px; */
@@ -12,7 +13,7 @@
   top: -20px;
 }
 
-.book-content-conatiner {
+.book-content-container {
   padding: 15px 18px;
 }
 
@@ -36,4 +37,10 @@
   height: 60px;
   color: grey;
   font-weight: 600;
+  font-size: 13px;
+}
+.book-voters {
+  color: "#bbbbbb";
+  font-size: 12px;
+  padding: 5px;
 }

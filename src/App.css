@@ -1,5 +1,5 @@
 .content {
   display: flex;
   background-color: aliceblue;
-  min-height: 60vh;
+  /* min-height: 60vh; */
 }
