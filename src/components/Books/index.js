@@ -8,6 +8,7 @@ import axios from 'axios'
 const Books = ({styles}) => {
     const dispatch = useDispatch()
     const { books } = useSelector(state => state.books)
+    const { title, author } = useSelector(state => state.filters)
 
     useEffect(() => {
         //Get books from database by calling the API
@@ -26,38 +27,6 @@ const Books = ({styles}) => {
         }
         fetchBooks()
     }, [dispatch])
-    // const Books = [{
-    //     title: "book1",
-    //     author: "author 1",
-    //     rating: 5,
-    //     voters: 200,
-    //     description: "book description 1",
-    //     img: "https://miro.medium.com/max/3200/1*xdo0UBpyszvD7-7EH4TkIA.png"
-    // },
-    // {
-    //     title: "book1",
-    //     author: "author 1",
-    //     rating: 5,
-    //     voters: 200,
-    //     description: "book description 1",
-    //     img: "https://miro.medium.com/max/3200/1*xdo0UBpyszvD7-7EH4TkIA.png"
-    // },
-    // {
-    //     title: "book1",
-    //     author: "author 1",
-    //     rating: 5,
-    //     voters: 200,
-    //     description: "book description 1",
-    //     img: "https://miro.medium.com/max/3200/1*xdo0UBpyszvD7-7EH4TkIA.png"
-    // },
-    // {
-    //     title: "book1",
-    //     author: "author 1",
-    //     rating: 5,
-    //     voters: 200,
-    //     description: "book description 1",
-    //     img: "https://miro.medium.com/max/3200/1*xdo0UBpyszvD7-7EH4TkIA.png"
-    // }]
     return (
         <div style={{...styles}}>
             <div className="add-book-container">
@@ -67,16 +36,29 @@ const Books = ({styles}) => {
                 {/* title: props of BookCard
                 book.title: property of book model ( API ) */}
                 {
-                    books.map((book, index) => (
-                        <BookCard 
-                            key={index}
-                            title={book.title}
-                            author={book.author}
-                            rating={book.rating}
-                            voters={book.nbVoters}
-                            description={book.description}
-                            img={book.img}/>
-                    ))
+                    !books || books.length === 0 ? (
+                        <div> No Data To Display</div>
+                    ): (
+                        <>
+                    { books
+                        .filter(
+                            elm => 
+                            elm.title.toLowerCase().indexOf(title.toLowerCase()) !== -1)
+                        .filter(
+                            elm => 
+                            elm.author.toLowerCase().indexOf(author.toLowerCase()) !== -1)
+                        .map((book, index) => (
+                            <BookCard 
+                                key={index}
+                                title={book.title}
+                                author={book.author}
+                                rating={book.rating}
+                                voters={book.nbVoters}
+                                description={book.description}
+                                img={book.img}/>
+                        ))}
+                    </>
+                    )
                 }
             </div>
         </div>
