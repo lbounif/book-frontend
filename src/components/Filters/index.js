@@ -1,7 +1,9 @@
 import "./filters.css"
 import { Input } from "antd"
+import { useDispatch } from "react-redux"
 
 const Filters = ({styles}) => {
+  const dispatch = useDispatch()
     return (
         <div style={{...styles}} className="filters-container">
             <div className="filters-header">Filters</div>
@@ -9,12 +11,12 @@ const Filters = ({styles}) => {
                 <Input 
                   style={{ height: 50, marginBottom: 30}}
                   placeholder="Search by Title"
-                //   onChange={(evt)=> }
+                  onChange={(event)=> dispatch({type: "UPDATE_TITLE", payload: event.target.value}) }
                   />
                 <Input 
                   style={{ height: 50, marginBottom: 30}}
                   placeholder="Search by Author"
-                //   onChange={(evt)=> }
+                  onChange={(event)=> dispatch({type: "UPDATE_AUTHOR", payload: event.target.value}) }
                   />
             </div>
         </div>
